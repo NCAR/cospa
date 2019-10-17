@@ -77,7 +77,7 @@ archiveDateTimeFormats=["%Y%m%d","%Y%m%d%H","%Y-%m-%dT%H:%M:%SZ"]
 # You may want to keep the tmp area around for debugging
 # As of 9/9/19 the archiver won't run if this is 'True'
 # For the time being, leave this 'False'
-cleanTemp = False
+cleanTemp = True
 
 ####################################
 ## ARCHIVE ITEM CONFIGURATION
