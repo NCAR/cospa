@@ -14,7 +14,22 @@ import datetime
 #####################################
 ## GENERAL CONFIGURATION
 #####################################
- 
+
+# GlobusArchiver.py submits one task to Globus
+# This is used to identify the task on the Globus Web API
+# Through painful trial and error, I have determined this cannot have a period in it.
+
+taskLabel =  f"convwx_48hr_archiver-%Y%m%d"
+
+# I would recommend uncommenting the taskLabel definition below, but because of the way ConfigMaster currently works
+# I cannot have __file__ in the default params.
+
+# This uses the config file name as part of the label, but strips the extension and replaces '.' with '_'
+#taskLabel =  f"{(os.path.splitext(os.path.basename(__file__))[0]).replace('.','_')}-%Y%m%d"
+
+
+###############  TEMP DIR   ##################
+
 # tempDir is used for:
 #     - Staging Location for .tar Files
 # Default, $TMPDIR if it is defined, otherwise $HOME if defined, otherwise '.'.
@@ -61,7 +76,7 @@ globusTokenFile = os.path.join(os.path.expanduser("~"),".globus-ral","refresh-to
 # The date/time can be substituted into all archive-item strings, by using
 # standard strftime formatting.
 
-# This value is added (so use a negaative number to assign a date in the past) 
+# This value is added (so use a negative number to assign a date in the past) 
 # to now() to find the archive date/time.
 archiveDayDelta=-2
 
