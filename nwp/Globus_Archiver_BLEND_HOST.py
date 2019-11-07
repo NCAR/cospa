@@ -144,9 +144,8 @@ transferStatusTimeout = 6*60*60
 archiveItems = {
     
 "ascii/bgWeightsGen24hr/extrap/":
-{
-"doZip": True, 
-"tarFileName": "bgWeightsGen24hr_extrap.%Y%m%d.gz.tar",
+{ 
+"tarFileName": "bgWeightsGen24hr_extrap.%Y%m%d.tar",
 "source": "/d2/fieldData/ConvWx/ascii/bgWeightsGen24hr/extrap/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
 "cdDirTar": "/d2/fieldData/ConvWx/"
@@ -158,8 +157,7 @@ archiveItems = {
 
 "ascii/bgWeightsGen24hr/model":
 {
-"doZip": True, 
-"tarFileName": "bgWeightsGen24hr_model.%Y%m%d.gz.tar",
+"tarFileName": "bgWeightsGen24hr_model.%Y%m%d.tar",
 "source": "/d2/fieldData/ConvWx/ascii/bgWeightsGen24hr/model/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
 "cdDirTar": "/d2/fieldData/ConvWx/"
@@ -171,8 +169,7 @@ archiveItems = {
 
 "ascii/fssClimoGen24hr/mitllExtrap":
 {
-"doZip": True, 
-"tarFileName": "fssClimoGen24hr_mitllExtrap.%Y%m%d.gz.tar",
+"tarFileName": "fssClimoGen24hr_mitllExtrap.%Y%m%d.tar",
 "source": "/d2/fieldData/ConvWx/ascii/fssClimoGen24hr/mitllExtrap/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
 "cdDirTar": "/d2/fieldData/ConvWx/"
@@ -184,8 +181,7 @@ archiveItems = {
 
 "ascii/fssClimoGen24hr/ncarLpc":
 {
-"doZip": True, 
-"tarFileName": "fssClimoGen24hr_ncarLpc.%Y%m%d.gz.tar",
+"tarFileName": "fssClimoGen24hr_ncarLpc.%Y%m%d.tar",
 "source": "/d2/fieldData/ConvWx/ascii/fssClimoGen24hr/ncarLpc/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
 "cdDirTar": "/d2/fieldData/ConvWx/"
