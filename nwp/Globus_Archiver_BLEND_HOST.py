@@ -139,6 +139,8 @@ transferStatusTimeout = 6*60*60
 #  ================================== 
 #extrap  directory  adding back into the blend archive 11/15/18
 
+# The archiver would not calculate expectedFileSize for the first 4.
+# Maybe because it was so small?  So they were commented out.
 archiveItems = {
     
 "ascii/bgWeightsGen24hr/extrap/":
@@ -147,11 +149,11 @@ archiveItems = {
 "tarFileName": "bgWeightsGen24hr_extrap.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/bgWeightsGen24hr/extrap/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
-"cdDirTar": "/d2/fieldData/ConvWx/",
+"cdDirTar": "/d2/fieldData/ConvWx/"
 #File size is 1 
-"expectedNumFiles": 1,
+#"expectedNumFiles": 1,
 #Size   use 4KB  4 000 
-"expectedFileSize": 4000
+#"expectedFileSize": 4000
  },
 
 "ascii/bgWeightsGen24hr/model":
@@ -160,11 +162,11 @@ archiveItems = {
 "tarFileName": "bgWeightsGen24hr_model.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/bgWeightsGen24hr/model/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
-"cdDirTar": "/d2/fieldData/ConvWx/",
+"cdDirTar": "/d2/fieldData/ConvWx/"
 #File size is 1 
-"expectedNumFiles": 1,
+#"expectedNumFiles": 1,
 #Size   use 4KB  4 000 
-"expectedFileSize": 4000
+#"expectedFileSize": 4000
  },
 
 "ascii/fssClimoGen24hr/mitllExtrap":
@@ -173,11 +175,11 @@ archiveItems = {
 "tarFileName": "fssClimoGen24hr_mitllExtrap.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/fssClimoGen24hr/mitllExtrap/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
-"cdDirTar": "/d2/fieldData/ConvWx/",
+"cdDirTar": "/d2/fieldData/ConvWx/"
 #File size is 1 
-"expectedNumFiles": 1,
+#"expectedNumFiles": 1,
 #Size   use 4KB  4 000 
-"expectedFileSize": 4000
+#"expectedFileSize": 4000
  },
 
 "ascii/fssClimoGen24hr/ncarLpc":
@@ -186,11 +188,11 @@ archiveItems = {
 "tarFileName": "fssClimoGen24hr_ncarLpc.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/fssClimoGen24hr/ncarLpc/%Y%m%d.000000.ascii",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
-"cdDirTar": "/d2/fieldData/ConvWx/",
+"cdDirTar": "/d2/fieldData/ConvWx/"
 #File size is 1 
-"expectedNumFiles": 1,
+#"expectedNumFiles": 1,
 #Size   use 4KB  4 000 
-"expectedFileSize": 4000
+#"expectedFileSize": 4000
  },
 
 "mdv/blendingDynamic/dynamicWeightsTsmooth":
