@@ -1,4 +1,4 @@
-#!/usr/local/python3/bin/ python3
+#!/usr/bin/env python
 
 ######################################
 #          GLOBUS CONFIGURATION
@@ -24,7 +24,7 @@ import datetime
 # This is used to identify the task on the Globus Web API
 # Through painful trial and error, I have determined this cannot have a period in it.
 
-taskLabel =  f"Epoch_Ops_cospa23-daily-archiver-%Y%m%d"
+taskLabel =  f"Epoch_Ops_cospa23-daily-72-hour-archiver-%Y%m%d"
 
 # I would recommend uncommenting the taskLabel definition below, but because of the way ConfigMaster currently works
 # I cannot have __file__ in the default params.
@@ -150,7 +150,7 @@ archiveItems = {
 "expectedFileSize": 2500000
  },
 
-"/mdv/cmorph/3hr_data"
+"/mdv/cmorph/3hr_data":
 {
 "tarFileName": "%Y%m%d_cmorph_climo.tar",
 "source": "/d1/fieldData/EpochOps/mdv/cmorph/climo_3hr_ge0.667_30days/%Y%m%d/",
