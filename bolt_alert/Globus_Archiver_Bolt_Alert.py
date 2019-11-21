@@ -6,7 +6,7 @@
 
 ###########
 #cospa24
-#archive.pl_data_list.BoltAlert_HOST.xml
+#Globus_Archiver_Bolt_Alert.py
 ###########
 
 
@@ -15,24 +15,51 @@ import os
 import socket
 import datetime
 
+
 #####################################
 ## GENERAL CONFIGURATION
 #####################################
- 
+
+# GlobusArchiver.py submits one task to Globus
+# This is used to identify the task on the Globus Web API
+# Through painful trial and error, I have determined this cannot have a period in it.
+
+taskLabel =  f"Bolt_Alert_GlobusArchive-%Y%m%d"
+
+# I would recommend uncommenting the taskLabel definition below, but because of the way ConfigMaster currently works
+# I cannot have __file__ in the default params.
+
+# This uses the config file name as part of the label, but strips the extension and replaces '.' with '_'
+#taskLabel =  f"{(os.path.splitext(os.path.basename(__file__))[0]).replace('.','_')}-%Y%m%d"
+
+###############  TEMP DIR   ##################
+
 # tempDir is used for:
 #     - Staging Location for .tar Files
+
 # Default, $TMPDIR if it is defined, otherwise $HOME if defined, otherwise '.'.
 #tempDir = os.path.join(os.getenv("TMPDIR",os.getenv("HOME",".")), "GlobusArchiver-tmp")
 tempDir = "/home/nowcast/data/BoltAlert/archive/"
+# You may want to keep the tmp area around for debugging
+cleanTemp = True
 
 ###############  EMAIL   ##################
+
 # Deliver a report to these email addresses
 # Use a list of 3-tuples  ("name", "local-part", "domain")
-
 emailAddresses = [("Lisa Goodrich", "lisag", "ucar.edu")] 
 
 # This is the email address that will be used in the "from" field
-fromEmail = emailAddresses[0];
+fromEmail = emailAddresses[0]
+
+# Format of email subject line. Can refer to errors, archiveDate, configFile, and host
+#  notated in curly braces.
+emailSubjectFormat = "{errors} with GlobusArchiver on {host} - {configFile} - {archiveDate}"
+
+# format of date timestamp in email subject. This format will be used to substitute
+# {archiveDate} in the emailSubjectFormat
+emailSubjectDateFormat = "%Y/%m/%d"
+
 
 #####################################
 ##  AUTHENTICATION          
@@ -41,10 +68,8 @@ fromEmail = emailAddresses[0];
 # You can define the endpoint directly  
 # This default value is the NCAR CampaignStore 
 # the value was obtained by running:
-# $ globus endpoint search 'NCAR' --filter-owner-id 'ncar@globusid.org' | grep Campaign | cut -f1 -d'      
-
+# $ globus endpoint search 'NCAR' --filter-owner-id 'ncar@globusid.org' | grep Campaign | cut -f1 -d' '
 archiveEndPoint = "6b5ab960-7bbf-11e8-9450-0a6d4e044368"
-
 
 # The refresh token is what lets you use globus without authenticating every time.  We store it in a local file.
 # !!IMPORTANT!!!
@@ -54,18 +79,18 @@ archiveEndPoint = "6b5ab960-7bbf-11e8-9450-0a6d4e044368"
 # e.g. placed in a directory where only you have read/write access
 globusTokenFile = os.path.join(os.path.expanduser("~"),".globus-ral","refresh-tokens.json")
 
+
 ####################################
 ## ARCHIVE RUN CONFIGURATION
 ####################################
 
-######################
-# Archive Date/Time
+#########  Archive Date/Time  #################
 #
-# This is used to set the date/timme of the Archive.
+# This is used to set the date/time of the Archive.
 # The date/time can be substituted into all archive-item strings, by using
 # standard strftime formatting.
 
-# This value is added (so use a negaative number to assign a date in the past) 
+# This value is added (so use a negative number to assign a date in the past) 
 # to now() to find the archive date/time.
 archiveDayDelta=-1
 
@@ -75,25 +100,39 @@ archiveDayDelta=-1
 # format strings defined in archiveDateTimeFormats.
 archiveDateTimeString=""
 
-# You can add additional strptime
+# You can add additional strptime formats
 archiveDateTimeFormats=["%Y%m%d","%Y%m%d%H","%Y-%m-%dT%H:%M:%SZ"]
 
-# You may want to keep the tmp area around for debugging
-# As of 9/9/19 the archiver won't run if this is 'True'
-# For the time being, leave this 'False'
-cleanTemp = True
+#####################################
+#  ARCHIVE SUBMISSION CONFIGURATION
+#####################################
+
+# Set to False to process data but don't actually submit the tasks to Globus
+submitTasks = True
+
+# Number of seconds to wait to see if transfer completed
+# Report error if it doesn't completed after this time
+# Default is 21600 (6 hours)
+transferStatusTimeout = 6*60*60
 
 ####################################
 ## ARCHIVE ITEM CONFIGURATION
 ####################################
+# TODO: better documentation of these fields in archiveItems
 
-# TODO: transfer-args are currently ignored
+# source 
 
-# do_zip is optional, and defaults to False.  It's also not working as of 9/9/19
-# transferLabel is optional, and defaults to the item key + "-%Y%m%d"
-# tar_filename is optional and defaults to "".  TAR is only done if tar_filename is a non-empty string
+# doZip        is optional, and defaults to False
+# tarFileName is optional and defaults to "".  TAR is only done if tarFileName is a non-empty string
+#              if multiple archiveItems have the same tarFileName, the files from all sources will get put into the same tar file.
 # transferArgs is a placeholder and not yet implemented.
 
+# use syncLevel to specify when files are overwritten:
+
+# "exists"   - If the destination file is absent, do the transfer.
+# "size"     - If destination file size does not match the source, do the transfer.
+# "mtime"    - If source has a newer modififed time than the destination, do the transfer.
+# "checksum" - If source and destination contents differ, as determined by a checksum of their contents, do the transfer. 
 
 archiveItems = {
 
@@ -146,7 +185,7 @@ archiveItems = {
 "expectedFileSize": 33000000
  },
 
-"spdb/ltg/CoLMA"
+"spdb/ltg/CoLMA":
 {
 "tarFileName": "%Y%m%d_BoltAlert_lightning.tar",
 "source": "/home/nowcast/data/BoltAlert/spdb/ltg/CoLMA/%Y%m%d.*",
@@ -158,7 +197,7 @@ archiveItems = {
 "expectedFileSize": 330012000
  },
 
-"mdv/ltg/CoLMA"
+"mdv/ltg/CoLMA":
 {
 "tarFileName": "%Y%m%d_BoltAlert_lightning.tar",
 "source": "/home/nowcast/data/BoltAlert/mdv/ltg/CoLMA/%Y%m%d/*",
@@ -189,7 +228,7 @@ archiveItems = {
 "source": "/home/nowcast/data/BoltAlert/spdb/ltg/NLDN_flashes/%Y%m%d.*",
 "destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
 "cdDirTar": "/home/nowcast/data/",
-#File size guess 2 files. New data, directory not up yet.
+#File size guess 2 files.
 "expectedNumFiles": 2,
 #Size guess  .5MB 500 000 
 "expectedFileSize": 500000
