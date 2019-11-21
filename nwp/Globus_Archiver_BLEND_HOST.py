@@ -193,6 +193,7 @@ archiveItems = {
 
 "mdv/blendingDynamic/dynamicWeightsTsmooth":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "dynamicWeightsTsmooth.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/blendingDynamic/dynamicWeightsTsmooth/%Y%m%d/*/*",
@@ -206,6 +207,7 @@ archiveItems = {
 
 "ascii/fcstObsDists":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "ascii_fcstObsDists.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/fcstObsDists/%Y%m%d/*/*",
@@ -219,6 +221,7 @@ archiveItems = {
 
 "ascii/fcstObsDistsEchoTops":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "fcstObsDistsEchoTops.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/fcstObsDistsEchoTops/%Y%m%d/*/*",
@@ -232,6 +235,7 @@ archiveItems = {
 
 "ascii/climoFcstObsDists":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "climoFcstObsDists.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/climoFcstObsDists/%Y%m%d/*/*",
@@ -245,6 +249,7 @@ archiveItems = {
 
 "ascii/climoFcstObsDistsEchoTops":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "climoFcstObsDistsEchoTops.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/ascii/climoFcstObsDistsEchoTops/%Y%m%d/*/*",
@@ -263,6 +268,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/VilMosaicFlags":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "VilMosaicFlags_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/VilMosaicFlags/%Y%m%d/*",
@@ -276,6 +282,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/EchoTopsMosaicFlags":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "EchoTopsMosaicFlags_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/EchoTopsMosaicFlags/%Y%m%d/*",
@@ -289,6 +296,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/ConvInitFlagForecast":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "ConvInitFlagForecast_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/ConvInitFlagForecast/%Y%m%d/*/*",
@@ -302,6 +310,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/CwafProbForecastLow/":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "CwafProbForecastLow.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/CwafProbForecastLow/%Y%m%d/*/*",
@@ -315,6 +324,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/EchoTopsMosaic":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "EchoTopsMosaic.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/EchoTopsMosaic/%Y%m%d/*",
@@ -328,6 +338,7 @@ archiveItems = {
 
  "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "HeuristicEchoTopsForecast.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/*/*",
@@ -341,6 +352,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "HeuristicVilForecast.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast/%Y%m%d/*/*",
@@ -354,6 +366,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/netCDF/mitll/VilMosaic":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "VilMosaic.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/netCDF/mitll/VilMosaic/%Y%m%d/*",
@@ -371,6 +384,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "hrrr_15min_ncarLpcTileExpand_echoTops_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops/%Y%m%d/*/*",
@@ -384,6 +398,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "hrrr_15min_ncarLpcTileExpand_digitalVil_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil/%Y%m%d/*/*",
@@ -396,6 +411,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/verify/fssGridClimo/mitllExtrap/digitalVil/":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "fssGridClimo_mitllExtrap_digitalVil_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/verify/fssGridClimo/mitllExtrap/digitalVil/%Y%m%d/*/*",
@@ -409,6 +425,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/verify/fssGridClimo/model/hrrr/15min/ncarLpc/digitalVil/":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "fssGridClimo_model_15min_digitalVil_%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/verify/fssGridClimo/model/hrrr/15min/ncarLpc/digitalVil/%Y%m%d/*/*",
@@ -422,6 +439,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/ncarLpc/digitalVil":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "ncarLpc_digitalVi.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/ncarLpc/digitalVil/%Y%m%d/*/*",
@@ -435,6 +453,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/ncarLpc/echoTops":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "echoTops.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/ncarLpc/echoTops/%Y%m%d/*/*",
@@ -448,6 +467,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/digitalVilDynCal":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "digitalVilDynCal.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/digitalVilDynCal/%Y%m%d/*/*",
@@ -461,6 +481,7 @@ archiveItems = {
 
 "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/echoTopDynCal/":
 {
+"doStaging": True,
 "doZip": True, 
 "tarFileName": "echoTopDynCal.%Y%m%d.gz.tar",
 "source": "/d2/fieldData/ConvWx/mdv/model/hrrr/15min/echoTopDynCal/%Y%m%d/*/*",
