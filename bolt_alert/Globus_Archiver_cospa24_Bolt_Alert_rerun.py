@@ -53,7 +53,7 @@ def main():
     log_dir = "/home/lisag/logs/"
 
     for mydate in mydatelist:
-        command = "/home/lisag/git/GlobusArchiver/GlobusArchiver.py --archiveDateTimeString %s --config /home/lisag/git/cospa/bolt_alert/Globus_Archiver_Bolt_Alert.py | LogFilter -d %s -p Globus_Archiver.py_c23_bolt_alert_rerun" % (mydate, log_dir)
+        command = "/home/lisag/git/GlobusArchiver/GlobusArchiver.py --archiveDateTimeString %s --config /home/lisag/git/cospa/bolt_alert/Globus_Archiver_Bolt_Alert.py | LogFilter -d %s -p Globus_Archiver.py_c24_bolt_alert_rerun" % (mydate, log_dir)
         print(command)
         ret = os.system(command)
         if ret != 1:
