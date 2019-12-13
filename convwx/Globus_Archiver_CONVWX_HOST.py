@@ -215,21 +215,7 @@ archiveItems = {
     "expectedNumFiles": 6530,
     # Sizes are varying from 300MB - 600MB  Use 300MB or 300 000 000
     "expectedFileSize": 400000000
-    },
-  
-"ConvWx/grib/model/hrrr/ncep/hrrr.date/conus":
-    {
-    "tarFileName":"%Y%m%d_hrrr_t0_wrfsubf.tar",
-    "source": "/home/nowcast/data/ConvWx/grib/model/hrrr/ncep/hrrr.%Y%m%d/conus/hrrr.t0*",
-    "destination": "/gpfs/csfs1/ral/aap/cwx/convwx/%Y/%m%d",
-    "cdDirTar": "/home/nowcast/data",
-    #  File size 19 per hour times 9 hours
-    "expectedNumFiles": 171,
-    # Using 24 hours is 70GB. Since the files are so large it was decided to
-    #Only use 8 hours or 9 for ease of archiving.
-    #Sizes 24.3GB
-    #2.7GB per hour times 9 hours 24.3GB or 240 000 000 000
-    "expectedFileSize": 240000000000
     }
+  
  }
 
