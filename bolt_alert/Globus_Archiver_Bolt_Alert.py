@@ -136,18 +136,6 @@ transferStatusTimeout = 6*60*60
 
 archiveItems = {
 
-"/mdv/nsslMosaic3D/merged":
-{
-"tarFileName": "%Y%m%d_nsslMosaic3d_merged.tar",
-"source": "/home/nowcast/data/BoltAlert/mdv/nsslMosaic3D/merged/%Y%m%d/*",
-"destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
-"cdDirTar": "/home/nowcast/data/",
-#File size 700 ish. 
-"expectedNumFiles": 700,
-# range from 6GB to 11GB 6 000 000 000 
-"expectedFileSize": 6000000000
- },
-
 # All of the BoltAlert_lightning.tar directories came from cospa25 It used to be lightning.tar files
 "mdv/ltg/USPLN":
 {
