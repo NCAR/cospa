@@ -23,7 +23,7 @@ import datetime
 # This is used to identify the task on the Globus Web API
 # Through painful trial and error, I have determined this cannot have a period in it.
 
-taskLabel =  f"cospa25_hrrr_-%Y%m%d"
+taskLabel =  f"cospa25_rtma_-%Y%m%d"
 
 # I would recommend uncommenting the taskLabel definition below, but because of the way ConfigMaster currently works
 # I cannot have __file__ in the default params.
