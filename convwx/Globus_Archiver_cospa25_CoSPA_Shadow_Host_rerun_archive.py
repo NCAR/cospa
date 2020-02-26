@@ -53,7 +53,7 @@ def main():
     log_dir = "/home/lisag/logs/"
 
     for mydate in mydatelist:
-        command = "/home/lisag/git/GlobusArchiver/GlobusArchiver.py --archiveDateTimeString %s --config /home/lisag/git/cospa/convwx/Globus_Archiver_cospa25_2Dhrrr.py | LogFilter -d %s -p Globus_Archiver.py_cospa25_rerun" % (mydate, log_dir)
+        command = "/home/lisag/git/GlobusArchiver/GlobusArchiver.py --archiveDateTimeString %s --config /home/lisag/git/cospa/convwx/Globus_Archiver_cospa25_rtma.py | LogFilter -d %s -p Globus_Archiver.py_cospa25_rerun" % (mydate, log_dir)
         print(command)
         ret = os.system(command)
         if ret != 1:
