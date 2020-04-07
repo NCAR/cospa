@@ -53,7 +53,7 @@ def main():
     log_dir = "/home/lisag/logs/"
 
     for mydate in mydatelist:
-        command = "/home/lisag/git/GlobusArchiver/GlobusArchiver.py --archiveDateTimeString %s --config /home/lisag/Globus_HeuristicForecastSpecificGenAndLeadTimes_ONLY.py | LogFilter -d %s -p GlobusArchiver_Heuristic_subset_nwp_rerun" % (mydate, log_dir)
+        command = "/home/lisag/git/GlobusArchiver/GlobusArchiver.py --archiveDateTimeString %s --config /home/lisag/git/cospa/nwp/Globus_HeuristicForecastSpecificGenAndLeadTimes_ONLY.py | LogFilter -d %s -p GlobusArchiver_Heuristic_subset_nwp_rerun" % (mydate, log_dir)
         print(command)
         ret = os.system(command)
         if ret != 1:
