@@ -146,7 +146,7 @@ label_root_echo_tops =  "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsFore
 label_root_vil =        "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast"
 
 source_root_echo_tops = "/d1/fieldData/ConvWx/archive/convert/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/g_*0000/f_000"
-source_root_vil =       "/d2/fieldData/ConvWx/archive/convert/%Y%m%d/g_*0000/f_000"
+source_root_vil =       "/d1/fieldData/ConvWx/archive/convert/netCDF/mitll/HeuristicVilForecast/%Y%m%d/g_*0000/f_000"
 tarFileNameEchoTops =   "HeuristicEchoTopsForecast_hr_gentimes.%Y%m%d.gz.tar"
 tarFileNameVil =        "HeuristicVilForecast_hr_gentimes.%Y%m%d.gz.tar"
 destination =           "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d"
