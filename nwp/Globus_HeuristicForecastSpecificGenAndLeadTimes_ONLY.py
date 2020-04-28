@@ -145,12 +145,12 @@ transferStatusTimeout = 6*60*60
 label_root_echo_tops =  "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast"
 label_root_vil =        "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast"
 
-source_root_echo_tops = "/d1/fieldData/ConvWx/archive/convert/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/g_*0000/f_000"
-source_root_vil =       "/d1/fieldData/ConvWx/archive/convert/netCDF/mitll/HeuristicVilForecast/%Y%m%d/g_*0000/f_000"
+source_root_echo_tops = "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/g_*0000/f_000"
+source_root_vil =       "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast/%Y%m%d/g_*0000/f_000"
 tarFileNameEchoTops =   "HeuristicEchoTopsForecast_hr_gentimes.%Y%m%d.gz.tar"
 tarFileNameVil =        "HeuristicVilForecast_hr_gentimes.%Y%m%d.gz.tar"
 destination =           "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d"
-cdDirTar =              "/d1/fieldData/ConvWx/archive/convert/"
+cdDirTar =              "/d2/fieldData/ConvWx/"
 doStaging = True
 doZip =     True
 expectedNumFiles = 24 # Looks like this needs to be one lead time at a time, cumulatively.
