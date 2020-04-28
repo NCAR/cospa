@@ -8,8 +8,6 @@
 
 # Imports used in the configuration file
 import os
-import socket
-import datetime
 
 
 #####################################
@@ -336,33 +334,35 @@ archiveItems = {
 "expectedFileSize": 60000000
  },
 
- "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast":
-{
-"doStaging": True,
-"doZip": True, 
-"tarFileName": "HeuristicEchoTopsForecast.%Y%m%d.gz.tar",
-"source": "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/*/*",
-"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
-"cdDirTar": "/d2/fieldData/ConvWx/",
-#File size  96 most consistent 
-"expectedNumFiles": 96,
-#Size varies 100MB to 1.6GB use 700MB  700 000 000 
-"expectedFileSize": 700000000
- },
-
-"/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast":
-{
-"doStaging": True,
-"doZip": True, 
-"tarFileName": "HeuristicVilForecast.%Y%m%d.gz.tar",
-"source": "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast/%Y%m%d/*/*",
-"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
-"cdDirTar": "/d2/fieldData/ConvWx/",
-#File size  96 most consistent 
-"expectedNumFiles": 96,
-#Size varies 1.6GB to 3.2GB use 1.2GB  1 200 000 000 
-"expectedFileSize": 1200000000
- },
+# JTH commenting these two out.  They will be added for specific lead times
+# at the bottom.
+# "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast":
+#{
+#"doStaging": True,
+#"doZip": True, 
+#"tarFileName": "HeuristicEchoTopsForecast.%Y%m%d.gz.tar",
+#"source": "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/*/*",
+#"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
+#"cdDirTar": "/d2/fieldData/ConvWx/",
+##File size  96 most consistent 
+#"expectedNumFiles": 96,
+##Size varies 100MB to 1.6GB use 700MB  700 000 000 
+#"expectedFileSize": 700000000
+# },
+#
+#"/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast":
+#{
+#"doStaging": True,
+#"doZip": True, 
+#"tarFileName": "HeuristicVilForecast.%Y%m%d.gz.tar",
+#"source": "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast/%Y%m%d/*/*",
+#"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
+#"cdDirTar": "/d2/fieldData/ConvWx/",
+##File size  96 most consistent 
+#"expectedNumFiles": 96,
+##Size varies 1.6GB to 3.2GB use 1.2GB  1 200 000 000 
+#"expectedFileSize": 1200000000
+# },
 
 "/d2/fieldData/ConvWx/netCDF/mitll/VilMosaic":
 {
@@ -492,8 +492,62 @@ archiveItems = {
 #Size varies from 83MB to 669MB use 150MB 150 000 000 
 "expectedFileSize": 150000000
  }
-
-
 }
 
+# Now add more archiveItems to the dictionary already created above.  These are for specific
+# lead times (every half hour).
 
+label_root_echo_tops =  "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast"
+label_root_vil =        "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast"
+source_root_echo_tops = "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicEchoTopsForecast/%Y%m%d/g_*0000/f_000"
+source_root_vil =       "/d2/fieldData/ConvWx/netCDF/mitll/HeuristicVilForecast/%Y%m%d/g_*0000/f_000"
+tarFileNameEchoTops =   "HeuristicEchoTopsForecast_hr_gentimes.%Y%m%d.gz.tar"
+tarFileNameVil =        "HeuristicVilForecast_hr_gentimes.%Y%m%d.gz.tar"
+destination =           "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d"
+cdDirTar =              "/d2/fieldData/ConvWx/"
+doStaging = True
+doZip =     True
+expectedNumFiles = 24 # Looks like this needs to be one lead time at a time, cumulatively.
+expectedFileSizeEchoTops =  700000000
+expectedFileSizeVil      = 1200000000
+
+# etc. for destination, cdDirTar, expectedNumFiles, expectedFileSize
+# add all times here
+for lead_time in "01800", "03600", "05400", "07200", "09000", "10800", "12600", "14400", "16200", "18000", "19800", "21600", "23400", "25200", "27000", "28800":
+    # Create Echo Tops archiveItem for this lead time
+    label = label_root_echo_tops + "-" + lead_time
+    source = source_root_echo_tops + lead_time + ".nc"
+    archiveItem = { "doStaging": doStaging,
+                    "doZip" : doZip,
+                    "tarFileName" : tarFileNameEchoTops,
+                    "source": source,
+                    "destination": destination,
+                    "cdDirTar": cdDirTar,
+                    "expectedNumFiles": expectedNumFiles,
+                    "expectedFileSize": expectedFileSizeEchoTops
+                  }
+    # Add this archiveItem to the dictionary of archiveItems
+    archiveItems[label] = archiveItem
+
+    # Create the Vil archiveItem for this lead time
+    label = label_root_vil + "-" + lead_time
+    source = source_root_vil + lead_time + ".nc"
+    archiveItem = { "doStaging": doStaging,
+                    "doZip" : doZip,
+                    "tarFileName" : tarFileNameVil,
+                    "source": source,
+                    "destination": destination,
+                    "cdDirTar": cdDirTar,
+                    "expectedNumFiles": expectedNumFiles,
+                    "expectedFileSize": expectedFileSizeVil
+                  }
+    # Add this archiveItem to the dictionary of archiveItems
+    archiveItems[label] = archiveItem
+ 
+    # Increment the number of files for another lead time
+    expectedNumFiles += 24
+ 
+# If you want to see the complete list of archiveItems, you can uncomment the following print
+# statement, then run this file as a separate program.  Note that it will all be on one line, so 
+# it won't be easy to read.    
+#print(archiveItems)
