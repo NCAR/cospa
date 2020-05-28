@@ -382,12 +382,14 @@ archiveItems = {
 #  ============mdv=============== 
 #  ================================== 
 
-"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops":
+# This one is broken into 3 pieces (g_0*, g_1*, g_2*) just to get around an error with an
+# argument list getting too long.
+"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops1":
 {
 "doStaging": True,
 "doZip": True, 
 "tarFileName": "hrrr_15min_ncarLpcTileExpand_echoTops_%Y%m%d.gz.tar",
-"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops/%Y%m%d/*/*",
+"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops/%Y%m%d/g_0*/*",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
 "cdDirTar": "/d2/fieldData/ConvWx/",
 #File size mostly 3745 
@@ -396,12 +398,67 @@ archiveItems = {
 "expectedFileSize": 200000
  },
 
-"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil":
+"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops2":
+{
+"doStaging": True,
+"doZip": True, 
+"tarFileName": "hrrr_15min_ncarLpcTileExpand_echoTops_%Y%m%d.gz.tar",
+"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops/%Y%m%d/g_1*/*",
+"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
+"cdDirTar": "/d2/fieldData/ConvWx/",
+#File size mostly 3745 
+"expectedNumFiles": 3745,
+#Size varies 67 - 742MB  use 200MB   200 000 
+"expectedFileSize": 200000
+ },
+ 
+"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops3":
+{
+"doStaging": True,
+"doZip": True, 
+"tarFileName": "hrrr_15min_ncarLpcTileExpand_echoTops_%Y%m%d.gz.tar",
+"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/echoTops/%Y%m%d/g_2*/*",
+"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
+"cdDirTar": "/d2/fieldData/ConvWx/",
+#File size mostly 3745 
+"expectedNumFiles": 3745,
+#Size varies 67 - 742MB  use 200MB   200 000 
+"expectedFileSize": 200000
+ },
+# This one is broken into 3 pieces (g_0*, g_1*, g_2*) just to get around an error with an
+# argument list getting too long.
+"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil1":
 {
 "doStaging": True,
 "doZip": True, 
 "tarFileName": "hrrr_15min_ncarLpcTileExpand_digitalVil_%Y%m%d.gz.tar",
-"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil/%Y%m%d/*/*",
+"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil/%Y%m%d/g_0*/*",
+"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
+"cdDirTar": "/d2/fieldData/ConvWx/",
+#File size mostly 3745 
+"expectedNumFiles": 3745
+#Size varies 200MB - 2.2GB  don't use a size  
+ },
+
+"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil2":
+{
+"doStaging": True,
+"doZip": True, 
+"tarFileName": "hrrr_15min_ncarLpcTileExpand_digitalVil_%Y%m%d.gz.tar",
+"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil/%Y%m%d/g_1*/*",
+"destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
+"cdDirTar": "/d2/fieldData/ConvWx/",
+#File size mostly 3745 
+"expectedNumFiles": 3745
+#Size varies 200MB - 2.2GB  don't use a size  
+ },
+
+"/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil3":
+{
+"doStaging": True,
+"doZip": True, 
+"tarFileName": "hrrr_15min_ncarLpcTileExpand_digitalVil_%Y%m%d.gz.tar",
+"source": "/d2/fieldData/ConvWx/mdv/blending/hrrr/15min/ncarLpcTileExpand/digitalVil/%Y%m%d/g_2*/*",
 "destination": "/gpfs/csfs1/ral/aap/cwx/nwp/%Y/%Y%m%d",
 "cdDirTar": "/d2/fieldData/ConvWx/",
 #File size mostly 3745 
