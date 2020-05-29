@@ -6,8 +6,8 @@
 ######################################
 
 ############
-# cospa 25
-# Globus_Archiver_cospa25_2Dhrrr.py  old shadow system
+# cospa 20
+# Globus_Archiver_cospa20_rtma used to be on cospa25 shadow
 ############
 # Imports used in the configuration file
 import os
@@ -23,7 +23,7 @@ import datetime
 # This is used to identify the task on the Globus Web API
 # Through painful trial and error, I have determined this cannot have a period in it.
 
-taskLabel =  f"cospa25_rtma_-%Y%m%d"
+taskLabel =  f"cospa20_rtma_-%Y%m%d"
 
 # I would recommend uncommenting the taskLabel definition below, but because of the way ConfigMaster currently works
 # I cannot have __file__ in the default params.
@@ -39,7 +39,7 @@ taskLabel =  f"cospa25_rtma_-%Y%m%d"
 
 # Default, $TMPDIR if it is defined, otherwise $HOME if defined, otherwise '.'.
 #tempDir = os.path.join(os.getenv("TMPDIR",os.getenv("HOME",".")), "GlobusArchiver-tmp")
-tempDir = "/d4/fieldData/CoSPA/archive/"
+tempDir = "/d1/fieldData/CoSPA/archive/"
 
 # You may want to keep the tmp area around for debugging
 cleanTemp = True
@@ -70,7 +70,7 @@ emailSubjectDateFormat = "%Y/%m/%d"
 # This default value is the NCAR CampaignStore 
 # the value was obtained by running:
 # $ globus endpoint search 'NCAR' --filter-owner-id 'ncar@globusid.org' | grep Campaign | cut -f1 -d' '
-archiveEndPoint = "6b5ab960-7bbf-11e8-9450-0a6d4e044368"
+archiveEndPoint = "d724a9ee-a1e7-11ea-9a3a-0255d23c44e"
 
 # The refresh token is what lets you use globus without authenticating every time.  We store it in a local file.
 # !!IMPORTANT!!!
@@ -154,9 +154,9 @@ archiveItems = {
 "raw/grib/model/rtma/rtma2p5_ru_directories":
 {
 "tarFileName": "%Y%m%d_rtma_grib2.gz.tar",
-"source": "/d4/fieldData/CoSPA/raw/grib/model/rtma/rtma2p5_ru.%Y%m%d/*",
+"source": "/d1/fieldData/CoSPA/raw/grib/model/rtma/rtma2p5_ru.%Y%m%d/*",
 "destination": "/gpfs/csfs1/ral/aap/cwx/cospa/%Y/%m%d",
-"cdDirTar": "/d4/fieldData",
+"cdDirTar": "/d1/fieldData",
 #File number 96 
 "expectedNumFiles": 96,
 #File Sizes 7GB  7 000 000 000 
