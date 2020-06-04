@@ -70,7 +70,7 @@ emailSubjectDateFormat = "%Y/%m/%d"
 # This default value is the NCAR CampaignStore 
 # the value was obtained by running:
 # $ globus endpoint search 'NCAR' --filter-owner-id 'ncar@globusid.org' | grep Campaign | cut -f1 -d' '
-archiveEndPoint = "d724a9ee-a1e7-11ea-9a3a-0255d23c44e"
+archiveEndPoint = "6b5ab960-7bbf-11e8-9450-0a6d4e044368"
 
 # The refresh token is what lets you use globus without authenticating every time.  We store it in a local file.
 # !!IMPORTANT!!!
@@ -154,7 +154,7 @@ archiveItems = {
 "raw/grib/model/rtma/rtma2p5_ru_directories":
 {
 "tarFileName": "%Y%m%d_rtma_grib2.gz.tar",
-"source": "/d1/fieldData/CoSPA/raw/grib/model/rtma/rtma2p5_ru.%Y%m%d/*",
+"source": "/d1/fieldData/CoSPA/raw/grib/model/rtma/prrtma.%Y%m%d/*",
 "destination": "/gpfs/csfs1/ral/aap/cwx/cospa/%Y/%m%d",
 "cdDirTar": "/d1/fieldData",
 #File number 96 
