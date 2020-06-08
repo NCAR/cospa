@@ -154,7 +154,7 @@ archiveItems = {
 "raw/grib/model/rtma/rtma2p5_ru_directories":
 {
 "tarFileName": "%Y%m%d_rtma_grib2.gz.tar",
-"source": "/d1/fieldData/CoSPA/raw/grib/model/rtma/prrtma.%Y%m%d/*",
+"source": "/d1/fieldData/CoSPA/raw/grib/model/rtma/rtma2p5_ru.%Y%m%d/*",
 "destination": "/gpfs/csfs1/ral/aap/cwx/cospa/%Y/%m%d",
 "cdDirTar": "/d1/fieldData",
 #File number 96 
