@@ -5,7 +5,7 @@
 ######################################
 
 ###########
-#cospa23
+#cospa23 6/20 now on cospa17
 # Globus_Archiver_Epoch_Ops.py
 ###########
 
@@ -24,7 +24,7 @@ import datetime
 # This is used to identify the task on the Globus Web API
 # Through painful trial and error, I have determined this cannot have a period in it.
 
-taskLabel =  f"Epoch_Ops_cospa23-daily-72-hour-archiver-%Y%m%d"
+taskLabel =  f"Epoch_Ops_cospa17-daily-72-hour-archiver-%Y%m%d"
 
 # I would recommend uncommenting the taskLabel definition below, but because of the way ConfigMaster currently works
 # I cannot have __file__ in the default params.
