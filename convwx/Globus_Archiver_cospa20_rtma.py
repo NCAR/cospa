@@ -150,7 +150,9 @@ transferStatusTimeout = 6*60*60
 # "checksum" - If source and destination contents differ, as determined by a checksum of their contents, do the transfer. 
 
 archiveItems = {
-#rtma is already gzipped.
+#rtma need to be zipped to save space.
+"doStaging": True,
+"doZip": True, 
 "raw/grib/model/rtma/rtma2p5_ru_directories":
 {
 "tarFileName": "%Y%m%d_rtma_grib2.gz.tar",
