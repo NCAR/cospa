@@ -137,29 +137,6 @@ transferStatusTimeout = 6*60*60
 archiveItems = {
 
 # All of the BoltAlert_lightning.tar directories came from cospa25 It used to be lightning.tar files
-"mdv/ltg/USPLN":
-{
-"tarFileName": "%Y%m%d_BoltAlert_lightning.tar",
-"source": "/home/nowcast/data/BoltAlert/mdv/ltg/USPLN/%Y%m%d/*",
-"destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
-"cdDirTar": "/home/nowcast/data/",
-#File size varies.  Use 2300. 
-"expectedNumFiles": 2300,
-# 18MB varies 18 000 000 
-"expectedFileSize": 18000000
- },
-
-"spdb/ltg/USPLN":
-{
-"tarFileName": "%Y%m%d_BoltAlert_lightning.tar",
-"source": "/home/nowcast/data/BoltAlert/spdb/ltg/USPLN/%Y%m%d*",
-"destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
-"cdDirTar": "/home/nowcast/data/",
-#File size 2 files data & index.   
-"expectedNumFiles": 2302,
-# varies from 2MB to 6MB use 3 000 000 
-"expectedFileSize": 21000000
- },
 
 "ascii/ltgCoLMA":
 {
@@ -168,9 +145,9 @@ archiveItems = {
 "destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
 "cdDirTar": "/home/nowcast/data/",
 #File size 1440 files.
-"expectedNumFiles": 3742,
+"expectedNumFiles": 1440,
 #Size  12MB 12 000 000 
-"expectedFileSize": 33000000
+"expectedFileSize": 12000000
  },
 
 "spdb/ltg/CoLMA":
@@ -180,9 +157,9 @@ archiveItems = {
 "destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
 "cdDirTar": "/home/nowcast/data/",
 #File size 2 files, index & data.
-"expectedNumFiles": 3744,
+"expectedNumFiles": 1442,
 #Size varies from 4 to 68K Use 12KB  012 000 
-"expectedFileSize": 330012000
+"expectedFileSize": 12012000
  },
 
 "mdv/ltg/CoLMA":
@@ -192,9 +169,9 @@ archiveItems = {
 "destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
 "cdDirTar": "/home/nowcast/data/",
 #File size varies21 to 61 files.  use 30
-"expectedNumFiles": 3774,
+"expectedNumFiles": 2912,
 #Size varies from 172K to 492K. Use 200KB  200 000 
-"expectedFileSize": 330212000
+"expectedFileSize": 12212000
  },
 
 "mdv/lmaFlashExtent":
@@ -204,35 +181,9 @@ archiveItems = {
 "destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
 "cdDirTar": "/home/nowcast/data/",
 #File size guess 200 files. New data, directory not up yet.
-"expectedNumFiles": 3974,
+"expectedNumFiles": 3112,
 #Size guess  1MB use 1 000 000 
-"expectedFileSize": 331212000
- },
-
-
-"spdb/ltg/NLDN_flashes":
-{
-"tarFileName": "%Y%m%d_lightning_NLDN_flashes.tar",
-"source": "/home/nowcast/data/BoltAlert/spdb/ltg/NLDN_flashes/%Y%m%d.*",
-"destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
-"cdDirTar": "/home/nowcast/data/",
-#File size guess 2 files.
-"expectedNumFiles": 2,
-#Size guess  .5MB 500 000 
-"expectedFileSize": 500000
- },
-
-"mnt/ltg/":
-{
-"tarFileName": "%Y%m%d_lightning_ualf.tar",
-"source": "/var/autofs/mnt/ltg/%Y%m%d*.ualf",
-"destination": "/gpfs/csfs1/ral/aap/cwx/bolt_alert/%Y/%m%d",
-"cdDirTar": "/var/autofs",
-#File size guess 1440 files.
-"expectedNumFiles": 1440,
-#Size guess  5MB 5 000 000 
-"expectedFileSize": 5000000
+"expectedFileSize": 13212000
  }
-
 
 }
